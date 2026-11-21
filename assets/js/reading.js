@@ -5,6 +5,8 @@
   const nav = document.querySelector('.section-nav');
   const pill = nav?.querySelector('.t-tabs-pill');
   const links = [...(nav?.querySelectorAll('a[href^="#"]') || [])];
+  const personal = document.querySelector('details.beyond-research');
+  if (personal && window.location.hash === '#misc') personal.open = true;
   const sections = links.map(link => document.querySelector(link.hash));
   if (!pill || sections.some(section => !section)) return;
 
@@ -44,6 +46,7 @@
   }
 
   function selectDestination(link) {
+    if (personal && link.hash === '#misc') personal.open = true;
     navigationTarget = link;
     setCurrent(link);
     releaseAfterScroll();
@@ -91,6 +94,7 @@
     navigationTarget = null;
     updateNavigation(false);
   });
+  personal?.addEventListener('toggle', () => updateNavigation(false));
   window.addEventListener('pageshow', () => updateNavigation(false));
   document.fonts.ready.then(() => updateNavigation(false));
   updateNavigation(false);
