@@ -1,0 +1,111 @@
+/* Content formatting for Jiani Wang's academic homepage.
+   The original Minimal Light layout, colors and typography remain in style.css. */
+html{scroll-padding-top:32px}
+body{font-size:16px;line-height:1.7;color:#48515a}
+a{color:#1676a5}
+a:hover{color:#043361}
+.wrapper{display:grid;grid-template-columns:224px minmax(0,1fr);column-gap:88px;align-items:start;width:calc(100% - 80px);max-width:1080px;margin:0 auto;padding:72px 0 48px}
+.wrapper>header{position:sticky;top:40px;float:none;width:auto;padding:0;max-height:calc(100dvh - 80px);overflow-y:auto}
+.wrapper>section{float:none;width:auto;min-width:0;margin:0;padding:0;border:0}
+.wrapper>section>p{margin-bottom:24px}
+@media screen and (min-width:961px) and (max-width:1150px){.wrapper{grid-template-columns:208px minmax(0,1fr);column-gap:56px;width:calc(100% - 64px);padding-top:56px}}
+a:focus-visible{outline:2px solid #3399cc;outline-offset:4px}
+strong{font-weight:600}
+.profile-photo{width:184px;aspect-ratio:1;margin:0 auto 22px;overflow:hidden;border-radius:8px}
+.profile-photo img{display:block;width:100%;height:100%;object-fit:cover;transform:scale(1.8);transform-origin:50% 36%}
+@media screen and (max-width:960px){.profile-photo{width:160px;margin-bottom:16px}}
+.profile-name-row{display:grid;justify-items:center;gap:10px;max-width:260px;margin:10px auto 18px}
+.profile-name-row h1{--text-soft-align:center;width:100%;min-width:0;min-height:44px;margin:0;font-size:28px;line-height:1.35;white-space:nowrap;letter-spacing:normal;word-spacing:normal}
+.profile-name-row .name-text:lang(en){font-family:"Source Serif 4",serif;font-size:28px;font-weight:500;letter-spacing:normal;text-indent:0}
+.profile-name-row .name-text:lang(zh){font-family:"Jiani Name Serif","Songti SC",serif;font-size:26px;font-weight:500;letter-spacing:.08em;text-indent:.08em}
+@media screen and (max-width:480px){.profile-name-row .name-text:lang(en){font-size:26px}.profile-name-row .name-text:lang(zh){font-size:24px}}
+.name-toggle{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));box-sizing:border-box;width:76px;height:30px;padding:3px;border-radius:6px;background:rgba(4,51,97,.055);isolation:isolate}
+.name-toggle[hidden]{display:none}
+.name-toggle::before{content:"";position:absolute;top:3px;bottom:3px;left:3px;width:calc((100% - 6px)/2);border-radius:4px;background:#fff;box-shadow:0 1px 3px rgba(4,51,97,.12);transition:transform var(--tabs-dur) var(--tabs-ease);z-index:-1}
+.name-toggle[data-language="zh"]::before{transform:translateX(100%)}
+.name-language{appearance:none;display:grid;place-items:center;min-width:0;padding:0;border:0;border-radius:4px;background:transparent;color:#65798c;font:500 11px/1 system-ui,sans-serif;cursor:pointer;transition:color var(--duration-quick) ease-out,transform var(--duration-quick) ease-out}
+.name-language[aria-pressed="true"],.name-language:hover{color:#043361}
+.name-language:active{transform:scale(.96)}
+.name-language:focus-visible{outline:2px solid #3399cc;outline-offset:2px}
+@media(pointer:coarse){.name-toggle{width:94px;height:50px}.name-language{font-size:12px}}
+@media(prefers-reduced-motion:reduce){.name-toggle::before,.name-language{transition:none}.name-language:active{transform:none}}
+@media(prefers-color-scheme:dark){.name-toggle{background:rgba(138,201,235,.08)}.name-toggle::before{background:#34475a;box-shadow:none}.name-language{color:#afbbc9}.name-language[aria-pressed="true"],.name-language:hover{color:#bce7ff}}
+section>h2{font-size:24px;font-weight:500;line-height:1.3;margin:0 0 20px}
+.position{font-size:14px;margin-bottom:8px;color:#64717e}
+.affiliation{font-size:15px;line-height:1.5;margin-bottom:10px}
+.institute{font-size:15px;line-height:1.5;margin-bottom:14px}
+.section-nav{display:flex;flex-direction:column;gap:6px;font-size:14px;margin-top:24px}
+.section-nav a{padding:2px 0}
+section>h2:not(:first-child){margin-top:46px}
+.application-note{color:#043361;font-weight:500}
+.application-marker{font-family:Arial,sans-serif;margin-right:.15em}
+.news-list{list-style:none;padding:0;margin:0;font-size:15px;line-height:1.7}
+.news-list li{display:grid;grid-template-columns:92px minmax(0,1fr);gap:16px;align-items:baseline}
+.news-list li+li{margin-top:14px}
+.news-list time{white-space:nowrap;font-size:14px;font-weight:500;color:#64717e}
+.publications{margin-top:0}
+.publications ol.bibliography{margin-bottom:0}
+.publications ol.bibliography li{min-height:0;margin:0}
+.publications ol.bibliography li+li{margin-top:32px;padding-top:32px;border-top:1px solid #e6ebef}
+.publication-text{width:100%}
+.publications ol.bibliography li .title{font-size:18px;line-height:1.4;font-weight:600;margin-bottom:10px;text-wrap:pretty}
+.publications .author{font-size:14px;line-height:1.65;margin-bottom:7px;color:#64717e}
+.publications .periodical{font-size:14px;line-height:1.55;margin-bottom:12px;color:#64717e}
+.paper-summary{font-size:15px;line-height:1.65;margin:0 0 14px}
+.publications .links{display:flex;flex-wrap:wrap;gap:7px}
+.publications ol.bibliography li .links a.btn{display:inline-flex;align-items:center;box-sizing:border-box;font-size:13px;line-height:1.4;border-radius:3px;border:1px solid #c9d6e0;color:#275675;padding:4px 10px;min-height:30px}
+.author-note{font-size:12px;margin:10px 0 0;color:#6c7782}
+.wrapper>section>.page-footnote{font-size:12px;color:#73808b;line-height:1.8;margin:44px 0 0;padding-top:20px;border-top:1px solid #e6ebef}
+.skip-link{position:absolute;left:16px;top:-80px;padding:8px 13px;background:#043361;color:white;z-index:100}
+.skip-link:focus{top:12px;color:white}
+@media(prefers-color-scheme:dark){body{color:#dadbdf}a{color:#82c9ed}a:hover{color:#bce7ff}.application-note{color:#3eb7f0}.position,.news-list time,.publications .author,.publications .periodical,.author-note,.wrapper>section>.page-footnote{color:#afbbc9}.publications ol.bibliography li+li,.wrapper>section>.page-footnote{border-color:#3b4653}.publications ol.bibliography li .links a.btn{color:#8ac9eb;border-color:#4e677a}}
+@media screen and (max-width:960px){body{padding:0 32px}.wrapper{display:block;width:auto;max-width:740px;margin:0 auto!important;padding:36px 0 32px}.wrapper>header{position:static;max-height:none;overflow:visible;padding:0 0 36px}.wrapper>section{padding-top:32px;border-top:1px solid #e6ebef}.section-nav{flex-direction:row;justify-content:center;flex-wrap:wrap;column-gap:17px;row-gap:3px;margin-top:15px}.section-nav a{padding:6px 0}.institute{margin-bottom:9px}}
+@media screen and (max-width:480px){body{padding:0 22px;font-size:15px;line-height:1.7}.wrapper{padding-top:28px}.wrapper>header{padding-bottom:28px}.wrapper>section{padding-top:28px}section>h2{font-size:22px;margin-bottom:18px}section>h2:not(:first-child){margin-top:38px}.publications .links{gap:8px}.publications ol.bibliography li .links a.btn{padding:7px 11px;min-height:36px}.section-nav{column-gap:14px;font-size:14px}.news-list li{display:block}.news-list time{display:block;margin-bottom:4px}.news-list li+li{margin-top:18px}}
+@media(prefers-color-scheme:dark) and (max-width:960px){.wrapper>section{border-color:#3b4653}}
+@media print{.wrapper{display:block;width:auto;max-width:none;padding:0}.wrapper>header{position:static;max-height:none;overflow:visible;padding-bottom:24px}.section-nav{display:none}body{font-size:11pt}.wrapper>section>.page-footnote{font-size:9pt}h2{break-after:avoid}.publications li{break-inside:avoid}}
+
+/* Publication previews from the official project page and repository. */
+.publications .pub-row{display:grid;grid-template-columns:212px minmax(0,1fr);gap:28px;align-items:center}
+.publication-preview{display:flex;align-items:center;justify-content:center;width:100%;margin:0;align-self:center}
+.publication-preview img{display:block;width:100%;height:auto;max-height:170px;object-fit:contain;border-radius:4px}
+.publications .publication-text{min-width:0}
+@media screen and (max-width:600px){
+  .publications .pub-row{grid-template-columns:minmax(0,1fr);gap:22px}
+  .publication-preview{max-width:360px;justify-self:center}
+  .publication-preview img{max-height:200px}
+}
+
+/* Venue labels sit just above each preview without covering the figure. */
+.publication-preview{position:relative;padding-top:26px}
+.publication-label{position:absolute;top:0;left:0;display:inline-block;padding:3px 7px;border-radius:3px;background:#043361;color:#fff;font-size:11px;font-weight:600;line-height:1.3;letter-spacing:.02em;white-space:nowrap}
+@media(prefers-color-scheme:dark){.publication-label{background:#3eb7f0;color:#10212b}}
+
+.research-interests{margin:0}
+.research-interests strong{color:inherit}
+.research-perspectives{margin:14px 0 20px;padding-left:1.25em;list-style:disc}
+.research-perspectives>li{padding-left:3px}
+.research-perspectives>li+li{margin-top:8px}
+.research-interests p{margin:0}
+.ongoing-projects{margin-top:26px;padding-top:20px;border-top:1px solid #e6ebef}
+.ongoing-projects h3{font-size:15px;font-weight:600;line-height:1.5;margin:0 0 8px;color:#64717e}
+.ongoing-projects p{font-size:15px;line-height:1.7;margin:0}
+@media(prefers-color-scheme:dark){.ongoing-projects{border-color:#3b4653}.ongoing-projects h3{color:#afbbc9}}
+
+.projects-list{list-style:none;margin:0;padding:0}
+.projects-list>li+li{margin-top:26px}
+.project-heading{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:4px 16px;margin-bottom:8px}
+.project-heading h3{font-size:18px;font-weight:600;line-height:1.4;margin:0;color:#043361}
+.project-summary{font-size:15px;line-height:1.65;margin:0 0 9px}
+.project-links{display:flex;gap:16px;font-size:13px;margin:0}
+.project-links a{text-decoration:underline;text-underline-offset:3px}
+@media screen and (max-width:600px){.project-heading{flex-direction:column;align-items:flex-start}}
+@media(prefers-color-scheme:dark){.project-heading h3{color:#8ac9eb}}
+
+.contact-links{display:flex;justify-content:center;flex-wrap:wrap;gap:8px;margin-top:14px}
+.contact-tag{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;width:36px;height:36px;padding:0;border:0;border-radius:0;background:transparent;color:#043361;font-size:14px;line-height:1.4;transition:color var(--duration-quick) ease-out}
+.contact-tag:hover{color:#3399cc;text-decoration:none}
+@media(pointer:coarse){.contact-tag{width:44px;height:44px}}
+@media(prefers-reduced-motion:reduce){.contact-tag{transition:none}}
+@media(prefers-color-scheme:dark){.contact-tag{color:#8ac9eb}.contact-tag:hover{color:#bce7ff}}
+
+.contact-tag svg{display:block;width:18px;height:18px}

@@ -1,0 +1,315 @@
+/* Motion recipes from Transitions.dev by Jakub Antalik.
+   Sources and license: assets/licenses/transitions-dev.txt and README.md.
+   Original recipe rules below; site-specific adaptations follow. */
+:root {
+--tabs-dur: 250ms;
+  --tabs-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --tabs-text-muted: rgba(15, 15, 15, 0.8);
+  --tabs-text-active: #0f0f0f;
+  --tabs-bar-bg: #f1f1f1;
+  --tabs-pill-bg: #ffffff;
+--modal-open-dur: 250ms;
+  --modal-close-dur: 150ms;
+  --modal-scale: 0.96;
+  --modal-scale-close: 0.96;
+  --modal-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-quick: 150ms;
+  --duration-fast: 250ms;
+  --ease-smooth-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --text-soft-dur: 200ms;
+  --text-soft-blur: 2px;
+  --text-soft-ease: ease-in-out;
+  --text-soft-resize-dur: 240ms;
+  --text-soft-resize-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* The bar is just a flex container with padding for the pill
+   to sit inside. Tabs sit on z-index: 1, the pill on z-index: 0,
+   so labels read above the pill background. */
+.t-tabs {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px;
+  border-radius: 48px;
+  background: var(--tabs-bar-bg);
+}
+.t-tab {
+  position: relative;
+  appearance: none;
+  border: 0;
+  background: transparent;
+  height: 30px;
+  padding: 4px 12px;
+  color: var(--tabs-text-muted);
+  cursor: pointer;
+  border-radius: 48px;
+  z-index: 1;
+  transition: color var(--tabs-dur) var(--tabs-ease);
+}
+.t-tab:not([aria-selected="true"]):hover,
+.t-tab[aria-selected="true"] {
+  color: var(--tabs-text-active);
+}
+
+/* The pill: width + transform are written inline by JS so
+   the transition tweens between the previous and next
+   measured positions. */
+.t-tabs-pill {
+  position: absolute;
+  top: 3px;
+  left: 0;
+  height: 30px;
+  width: 0;
+  background: var(--tabs-pill-bg);
+  border-radius: 48px;
+  transform: translateX(0);
+  transition:
+    transform var(--tabs-dur) var(--tabs-ease),
+    width     var(--tabs-dur) var(--tabs-ease);
+  will-change: transform, width;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-tabs-pill, .t-tab { transition: none !important; }
+}
+
+.t-modal {
+  transform-origin: center;
+  transform: scale(var(--modal-scale));
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform var(--modal-open-dur) var(--modal-ease),
+    opacity   var(--modal-open-dur) var(--modal-ease);
+  will-change: transform, opacity;
+}
+.t-modal.is-open {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+.t-modal.is-closing {
+  transform: scale(var(--modal-scale-close));
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform var(--modal-close-dur) var(--modal-ease),
+    opacity   var(--modal-close-dur) var(--modal-ease);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t-modal { transition: none !important; }
+}
+
+/* Text swap soft: both names share a grid cell and cross-blur in place. */
+.t-text-soft {
+  display: inline-grid;
+  justify-items: var(--text-soft-align, start);
+  transition: width var(--text-soft-resize-dur) var(--text-soft-resize-ease);
+}
+.t-text-soft > span {
+  grid-area: 1 / 1;
+  white-space: pre;
+  transition:
+    filter  var(--text-soft-dur) var(--text-soft-ease),
+    opacity var(--text-soft-dur) var(--text-soft-ease);
+}
+.t-text-soft-new {
+  opacity: 0;
+  filter: blur(var(--text-soft-blur));
+}
+.t-text-soft.is-swapping .t-text-soft-old {
+  opacity: 0;
+  filter: blur(var(--text-soft-blur));
+}
+.t-text-soft.is-swapping .t-text-soft-new {
+  opacity: 1;
+  filter: blur(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .t-text-soft,
+  .t-text-soft > span { transition: none !important; }
+}
+
+/* Site adaptations: retain document navigation semantics, rather than tabs. */
+:root {
+  --reading-accent: #043361;
+  --reading-muted: #65798c;
+  --reading-tint: #edf3f8;
+  --reading-surface: #fff;
+  --reading-line: #dfe7ee;
+}
+html { scrollbar-gutter: stable; }
+html.has-reading-tools { scroll-behavior: smooth; }
+a { transition: color var(--duration-quick) ease-out; }
+.section-nav.t-tabs {
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+  width: 174px;
+  margin: 24px auto 8px;
+  padding: 4px;
+  border-radius: 6px;
+  background: transparent;
+  text-align: left;
+}
+.section-nav .t-tab {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  height: 34px;
+  padding: 4px 14px;
+  border-radius: 4px;
+  color: var(--reading-muted);
+  line-height: 1.4;
+}
+.section-nav .t-tab:hover,
+.section-nav .t-tab[aria-current="location"] { color: var(--reading-accent); }
+.section-nav .t-tab[aria-current="location"] { font-weight: 600; }
+.section-nav .t-tabs-pill {
+  top: 0;
+  height: 34px;
+  border-radius: 4px;
+  background: var(--reading-tint);
+}
+.t-tabs-pill[hidden] { display: none; }
+.bibliography > li { scroll-margin-top: 28px; border-radius: 4px; }
+.bibliography > li:target { background: var(--reading-tint); box-shadow: 0 0 0 12px var(--reading-tint); }
+.bibliography > li:focus-visible { outline: 2px solid #3399cc; outline-offset: 12px; }
+.publication-preview { flex-direction: column; cursor: zoom-in; }
+.publication-preview img { transition: transform var(--duration-fast) var(--ease-smooth-out); }
+.publication-preview:hover img,
+.publication-preview:focus-visible img { transform: scale(1.025); }
+.preview-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 7px;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--reading-muted);
+  transition: color var(--duration-quick) ease-out;
+}
+.preview-hint > span { font: 18px/1 system-ui, sans-serif; }
+.publication-preview:hover .preview-hint { color: var(--reading-accent); }
+.publications ol.bibliography li .links a.btn {
+  transition: color var(--duration-quick) ease-out, border-color var(--duration-quick) ease-out;
+}
+
+/* A native dialog supplies focus trapping, inert background, and Escape support. */
+html.has-open-figure { overflow: hidden; }
+.figure-dialog {
+  box-sizing: border-box;
+  width: min(1040px, calc(100% - 48px));
+  max-width: none;
+  max-height: calc(100dvh - 48px);
+  margin: auto;
+  padding: 22px 28px 26px;
+  border: 1px solid var(--reading-line);
+  border-radius: 10px;
+  background: var(--reading-surface);
+  color: inherit;
+  box-shadow: 0 24px 100px #0003;
+  overscroll-behavior: contain;
+}
+.figure-dialog::backdrop {
+  background: rgb(10 24 38 / 55%);
+  opacity: 0;
+  transition: opacity var(--modal-close-dur) var(--modal-ease);
+}
+.figure-dialog.is-open::backdrop { opacity: 1; transition-duration: var(--modal-open-dur); }
+.figure-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
+.figure-kicker { margin: 0; font-size: 13px; color: var(--reading-muted); }
+.figure-close {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: var(--reading-accent);
+  font: 28px/1 system-ui, sans-serif;
+  cursor: pointer;
+  transition: background-color var(--duration-quick) ease-out;
+}
+.figure-close:hover { background: var(--reading-tint); }
+.figure-close:focus-visible { outline: 2px solid #3399cc; outline-offset: 2px; }
+.figure-dialog h2 { margin: 6px 48px 18px 0; font-size: 21px; line-height: 1.35; }
+.figure-stage { padding: 14px; background: #fff; border: 1px solid var(--reading-line); border-radius: 4px; }
+.figure-image { display: block; width: 100%; height: auto; max-height: 54dvh; object-fit: contain; }
+#figure-summary { max-width: 800px; margin: 18px 0; font-size: 15px; line-height: 1.5; }
+.figure-actions { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; font-size: 14px; }
+.figure-links { display: flex; flex-wrap: wrap; gap: 18px; }
+.figure-links a { text-decoration: underline; text-underline-offset: 4px; }
+.figure-original { color: var(--reading-muted); }
+
+@media screen and (max-width: 960px) {
+  .section-nav.t-tabs {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    width: max-content;
+    max-width: 100%;
+    justify-content: center;
+    font-size: 14px;
+    margin: 18px auto 0;
+  }
+  .has-reading-tools .section-nav.t-tabs {
+    position: fixed;
+    z-index: 20;
+    left: 14px;
+    right: 14px;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    width: auto;
+    max-width: 430px;
+    margin: 0 auto;
+    padding: 5px;
+    background: var(--reading-surface);
+    border: 1px solid var(--reading-line);
+    border-radius: 8px;
+    box-shadow: 0 3px 18px rgb(10 24 38 / 9%);
+  }
+  .section-nav .t-tab { justify-content: center; flex: 1; padding: 6px 10px; height: 40px; }
+  .section-nav .t-tabs-pill { height: 40px; }
+  .has-reading-tools body { padding-bottom: calc(124px + env(safe-area-inset-bottom)); }
+}
+@media screen and (max-width: 480px) {
+  .section-nav.t-tabs { font-size: 13px; gap: 0; }
+  .section-nav .t-tab { padding-inline: 5px; }
+  .figure-dialog { width: calc(100% - 24px); max-height: calc(100dvh - 24px); padding: 14px 16px 20px; }
+  .figure-dialog h2 { margin-right: 0; font-size: 18px; }
+  .figure-stage { padding: 6px; }
+  #figure-summary { font-size: 15px; }
+}
+@media screen and (max-width: 360px) {
+  .section-nav .t-tab { padding-inline: 2px; }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --reading-accent: #8ac9eb;
+    --reading-muted: #afbbc9;
+    --reading-tint: #293b4b;
+    --reading-surface: #20212b;
+    --reading-line: #3b4653;
+  }
+  .figure-dialog { color: #dadbdf; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html.has-reading-tools { scroll-behavior: auto; }
+  a, .publication-preview img, .preview-hint,
+  .publications ol.bibliography li .links a.btn,
+  .figure-dialog::backdrop, .figure-close { transition: none !important; }
+  .publication-preview:hover img, .publication-preview:focus-visible img { transform: none; }
+}
+@media print {
+  .section-nav.t-tabs, .figure-dialog, .preview-hint { display: none !important; }
+  html.has-open-figure { overflow: visible; }
+  .has-reading-tools body { padding-bottom: 0; }
+  .bibliography > li:target { box-shadow: none; background: transparent; }
+}
