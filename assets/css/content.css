@@ -109,19 +109,3 @@ section>h2:not(:first-child){margin-top:46px}
 @media(prefers-color-scheme:dark){.contact-tag{color:#8ac9eb}.contact-tag:hover{color:#bce7ff}}
 
 .contact-tag svg{display:block;width:18px;height:18px}
-
-/* A compact personal note after the academic sections. */
-.beyond-research{margin:40px 0 0;scroll-margin-top:32px}
-.beyond-research>summary{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0;color:#526777;font-size:14px;font-weight:500;line-height:1.5;list-style:none;cursor:pointer}
-.beyond-research>summary::-webkit-details-marker{display:none}
-.beyond-research>summary:hover{color:#1676a5}
-.beyond-research>summary:focus-visible{outline:2px solid #3399cc;outline-offset:4px}
-.beyond-chevron{flex:none;width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:transform var(--duration-quick) ease-out}
-.beyond-research[open] .beyond-chevron{transform:rotate(90deg)}
-.beyond-content{max-width:650px;margin:8px 0 0;padding:0 0 0 16px;border-left:2px solid #e6ebef;font-size:14px;line-height:1.7}
-.beyond-content>p{margin:0 0 12px}
-.beyond-content>p:last-of-type{margin-bottom:0}
-@media(prefers-color-scheme:dark){.beyond-research>summary{color:#afbbc9}.beyond-research>summary:hover{color:#bce7ff}.beyond-content{border-color:#3b4653}}
-@media(prefers-reduced-motion:reduce){.beyond-chevron{transition:none}}
-
-@media(pointer:coarse){.beyond-research>summary{min-height:44px}}
