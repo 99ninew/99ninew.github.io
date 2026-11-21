@@ -253,7 +253,7 @@ html.has-open-figure { overflow: hidden; }
 @media screen and (max-width: 960px) {
   .section-nav.t-tabs {
     display: grid;
-    grid-template-columns: repeat(5, auto);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     width: max-content;
     max-width: 100%;
     justify-content: center;
@@ -277,7 +277,7 @@ html.has-open-figure { overflow: hidden; }
   }
   .section-nav .t-tab { justify-content: center; min-width: 0; white-space: nowrap; padding: 6px 7px; height: 44px; }
   .section-nav .t-tabs-pill { height: 44px; }
-  .has-reading-tools body { padding-bottom: calc(88px + env(safe-area-inset-bottom)); }
+  .has-reading-tools body { padding-bottom: calc(132px + env(safe-area-inset-bottom)); }
 }
 @media screen and (max-width: 480px) {
   .section-nav.t-tabs { font-size: 13px; gap: 0; }
