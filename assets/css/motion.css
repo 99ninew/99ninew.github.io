@@ -253,7 +253,7 @@ html.has-open-figure { overflow: hidden; }
 @media screen and (max-width: 960px) {
   .section-nav.t-tabs {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(5, auto);
     width: max-content;
     max-width: 100%;
     justify-content: center;
@@ -275,19 +275,20 @@ html.has-open-figure { overflow: hidden; }
     border-radius: 8px;
     box-shadow: 0 3px 18px rgb(10 24 38 / 9%);
   }
-  .section-nav .t-tab { justify-content: center; flex: 1; padding: 6px 10px; height: 40px; }
-  .section-nav .t-tabs-pill { height: 40px; }
-  .has-reading-tools body { padding-bottom: calc(124px + env(safe-area-inset-bottom)); }
+  .section-nav .t-tab { justify-content: center; min-width: 0; white-space: nowrap; padding: 6px 7px; height: 44px; }
+  .section-nav .t-tabs-pill { height: 44px; }
+  .has-reading-tools body { padding-bottom: calc(88px + env(safe-area-inset-bottom)); }
 }
 @media screen and (max-width: 480px) {
   .section-nav.t-tabs { font-size: 13px; gap: 0; }
-  .section-nav .t-tab { padding-inline: 5px; }
+  .section-nav .t-tab { padding-inline: 4px; }
   .figure-dialog { width: calc(100% - 24px); max-height: calc(100dvh - 24px); padding: 14px 16px 20px; }
   .figure-dialog h2 { margin-right: 0; font-size: 18px; }
   .figure-stage { padding: 6px; }
   #figure-summary { font-size: 15px; }
 }
 @media screen and (max-width: 360px) {
+  .section-nav.t-tabs { font-size: 12px; }
   .section-nav .t-tab { padding-inline: 2px; }
 }
 @media (prefers-color-scheme: dark) {

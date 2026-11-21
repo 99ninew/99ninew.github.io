@@ -37,8 +37,9 @@ section>h2{font-size:24px;font-weight:500;line-height:1.3;margin:0 0 20px}
 .section-nav{display:flex;flex-direction:column;gap:6px;font-size:14px;margin-top:24px}
 .section-nav a{padding:2px 0}
 section>h2:not(:first-child){margin-top:46px}
-.application-note{color:#043361;font-weight:500}
-.application-marker{font-family:Arial,sans-serif;margin-right:.15em}
+.application-note{display:grid;grid-template-columns:12px minmax(0,1fr);align-items:baseline;column-gap:8px;color:#043361;font-weight:500}
+.application-marker{font:13px/1 Arial,sans-serif;text-align:center}
+.wrapper>section>.contact-invitation{margin-bottom:6px}
 .news-list{list-style:none;padding:0;margin:0;font-size:15px;line-height:1.7}
 .news-list li{display:grid;grid-template-columns:92px minmax(0,1fr);gap:16px;align-items:baseline}
 .news-list li+li{margin-top:14px}
@@ -112,11 +113,11 @@ section>h2:not(:first-child){margin-top:46px}
 
 /* A compact personal note close to the introduction. */
 .beyond-research{margin:0;scroll-margin-top:32px}
-.beyond-research>summary{display:inline-flex;align-items:center;gap:12px;min-height:44px;padding:0;color:#526777;font-size:14px;font-weight:500;line-height:1.5;list-style:none;cursor:pointer}
+.beyond-research>summary{display:inline-flex;align-items:center;gap:8px;min-height:36px;padding:0;color:#526777;font-size:14px;font-weight:500;line-height:1.5;list-style:none;cursor:pointer}
 .beyond-research>summary::-webkit-details-marker{display:none}
 .beyond-research>summary:hover{color:#1676a5}
 .beyond-research>summary:focus-visible{outline:2px solid #3399cc;outline-offset:4px}
-.beyond-chevron{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:transform var(--duration-quick) ease-out}
+.beyond-chevron{flex:none;width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;transition:transform var(--duration-quick) ease-out}
 .beyond-research[open] .beyond-chevron{transform:rotate(90deg)}
 .beyond-content{max-width:650px;margin:8px 0 0;padding:0 0 0 16px;border-left:2px solid #e6ebef;font-size:14px;line-height:1.7}
 .beyond-content>p{margin:0 0 12px}
@@ -124,3 +125,5 @@ section>h2:not(:first-child){margin-top:46px}
 .wrapper>section>.beyond-research+h2{margin-top:30px}
 @media(prefers-color-scheme:dark){.beyond-research>summary{color:#afbbc9}.beyond-research>summary:hover{color:#bce7ff}.beyond-content{border-color:#3b4653}}
 @media(prefers-reduced-motion:reduce){.beyond-chevron{transition:none}}
+
+@media(pointer:coarse){.beyond-research>summary{min-height:44px}}

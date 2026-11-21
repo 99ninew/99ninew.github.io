@@ -46,7 +46,6 @@
   }
 
   function selectDestination(link) {
-    if (personal && link.hash === '#misc') personal.open = true;
     navigationTarget = link;
     setCurrent(link);
     releaseAfterScroll();
@@ -58,7 +57,10 @@
   }));
   window.addEventListener('hashchange', () => {
     const destination = links.find(link => link.hash === window.location.hash);
-    if (destination) selectDestination(destination);
+    if (window.location.hash === '#misc' && personal) {
+      personal.open = true;
+      selectDestination(links.find(link => link.hash === '#about-me'));
+    } else if (destination) selectDestination(destination);
     else if (['#schema', '#spa'].includes(window.location.hash)) selectDestination(links.find(link => link.hash === '#publications'));
   });
   window.addEventListener('wheel', () => { navigationTarget = null; }, { passive: true });
