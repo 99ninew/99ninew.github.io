@@ -86,7 +86,6 @@ section>h2:not(:first-child){margin-top:46px}
 .research-perspectives>li{padding-left:3px}
 .research-perspectives>li+li{margin-top:8px}
 .research-interests p{margin:0}
-.research-interests .agent-interests-intro{margin-top:20px}
 .ongoing-projects{margin-top:26px;padding-top:20px;border-top:1px solid #e6ebef}
 .ongoing-projects h3{font-size:15px;font-weight:600;line-height:1.5;margin:0 0 8px;color:#64717e}
 .ongoing-projects p{font-size:15px;line-height:1.7;margin:0}
