@@ -82,7 +82,6 @@ section>h2:not(:first-child){margin-top:46px}
 
 .research-interests{margin:0}
 .research-interests strong{color:inherit;font-weight:700}
-.research-focus{text-decoration-line:underline;text-decoration-color:currentColor;text-decoration-thickness:1px;text-underline-offset:.22em;text-decoration-skip-ink:auto}
 .research-perspectives{margin:14px 0 20px;padding-left:1.25em;list-style:disc}
 .research-perspectives>li{padding-left:3px}
 .research-perspectives>li+li{margin-top:8px}
