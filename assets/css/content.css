@@ -81,7 +81,7 @@ section>h2:not(:first-child){margin-top:46px}
 @media(prefers-color-scheme:dark){.publication-label{background:#3eb7f0;color:#10212b}}
 
 .research-interests{margin:0}
-.research-interests strong{color:inherit}
+.research-interests strong{color:inherit;font-weight:700}
 .research-perspectives{margin:14px 0 20px;padding-left:1.25em;list-style:disc}
 .research-perspectives>li{padding-left:3px}
 .research-perspectives>li+li{margin-top:8px}
