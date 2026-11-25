@@ -81,8 +81,8 @@ section>h2:not(:first-child){margin-top:64px}
 @media(prefers-color-scheme:dark){.publication-label{background:#3eb7f0;color:#10212b}}
 
 .research-interests{margin:0}
-.research-interests strong,.ongoing-projects strong{color:#111;font-weight:700}
-@media(prefers-color-scheme:dark){.research-interests strong,.ongoing-projects strong{color:#f2f4f8}}
+.research-interests strong{color:#111;font-weight:700}
+@media(prefers-color-scheme:dark){.research-interests strong{color:#f2f4f8}}
 .research-perspectives{margin:16px 0 0;padding-left:1.25em;list-style:disc}
 .research-perspectives>li{padding-left:3px}
 .research-perspectives>li+li{margin-top:6px}
