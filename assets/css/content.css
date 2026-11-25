@@ -1,13 +1,13 @@
 /* Content formatting for Jiani Wang's academic homepage.
    The original Minimal Light layout, colors and typography remain in style.css. */
 html{scroll-padding-top:32px}
-body{font-size:16px;line-height:1.7;color:#48515a}
+body{font-size:15px;line-height:1.65;color:#48515a}
 a{color:#1676a5}
 a:hover{color:#043361}
 .wrapper{display:grid;grid-template-columns:224px minmax(0,1fr);column-gap:88px;align-items:start;width:calc(100% - 80px);max-width:1080px;margin:0 auto;padding:72px 0 48px}
 .wrapper>header{position:sticky;top:40px;float:none;width:auto;padding:0;max-height:calc(100dvh - 80px);overflow-y:auto}
 .wrapper>section{float:none;width:auto;min-width:0;margin:0;padding:0;border:0}
-.wrapper>section>p{margin-bottom:24px}
+.wrapper>section>p{margin-bottom:20px}
 @media screen and (min-width:961px) and (max-width:1150px){.wrapper{grid-template-columns:208px minmax(0,1fr);column-gap:56px;width:calc(100% - 64px);padding-top:56px}}
 a:focus-visible{outline:2px solid #3399cc;outline-offset:4px}
 strong{font-weight:600}
@@ -39,7 +39,7 @@ section>h2{font-size:26px;font-weight:600;line-height:1.3;margin:0 0 22px}
 section>h2:not(:first-child){margin-top:64px}
 .application-note{display:grid;grid-template-columns:12px minmax(0,1fr);align-items:baseline;column-gap:8px;color:#043361;font-weight:500}
 .application-marker{font:13px/1 Arial,sans-serif;text-align:center}
-.news-list{list-style:none;padding:0;margin:0;font-size:15px;line-height:1.7}
+.news-list{list-style:none;padding:0;margin:0;font-size:14.5px;line-height:1.65}
 .news-list li{display:grid;grid-template-columns:92px minmax(0,1fr);gap:16px;align-items:baseline}
 .news-list li+li{margin-top:14px}
 .news-list time{white-space:nowrap;font-size:14px;font-weight:500;color:#64717e}
@@ -51,7 +51,7 @@ section>h2:not(:first-child){margin-top:64px}
 .publications ol.bibliography li .title{font-size:18px;line-height:1.4;font-weight:600;margin-bottom:10px;text-wrap:pretty}
 .publications .author{font-size:14px;line-height:1.65;margin-bottom:7px;color:#64717e}
 .publications .periodical{font-size:14px;line-height:1.55;margin-bottom:12px;color:#64717e}
-.paper-summary{font-size:15px;line-height:1.65;margin:0 0 14px}
+.paper-summary{font-size:14.5px;line-height:1.6;margin:0 0 12px}
 .publications .links{display:flex;flex-wrap:wrap;gap:7px}
 .publications ol.bibliography li .links a.btn{display:inline-flex;align-items:center;box-sizing:border-box;font-size:13px;line-height:1.4;border-radius:3px;border:1px solid #c9d6e0;color:#275675;padding:4px 10px;min-height:30px}
 .author-note{font-size:12px;margin:10px 0 0;color:#6c7782}
@@ -60,7 +60,7 @@ section>h2:not(:first-child){margin-top:64px}
 .skip-link:focus{top:12px;color:white}
 @media(prefers-color-scheme:dark){body{color:#dadbdf}a{color:#82c9ed}a:hover{color:#bce7ff}.application-note{color:#3eb7f0}.position,.news-list time,.publications .author,.publications .periodical,.author-note,.wrapper>section>.page-footnote{color:#afbbc9}.publications ol.bibliography li+li,.wrapper>section>.page-footnote{border-color:#3b4653}.publications ol.bibliography li .links a.btn{color:#8ac9eb;border-color:#4e677a}}
 @media screen and (max-width:960px){body{padding:0 32px}.wrapper{display:block;width:auto;max-width:740px;margin:0 auto!important;padding:36px 0 32px}.wrapper>header{position:static;max-height:none;overflow:visible;padding:0 0 36px}.wrapper>section{padding-top:32px;border-top:1px solid #e6ebef}.section-nav{flex-direction:row;justify-content:center;flex-wrap:wrap;column-gap:17px;row-gap:3px;margin-top:15px}.section-nav a{padding:6px 0}.institute{margin-bottom:9px}}
-@media screen and (max-width:480px){body{padding:0 22px;font-size:15px;line-height:1.7}.wrapper{padding-top:28px}.wrapper>header{padding-bottom:28px}.wrapper>section{padding-top:28px}section>h2{font-size:24px;margin-bottom:20px}section>h2:not(:first-child){margin-top:48px}.publications .links{gap:8px}.publications ol.bibliography li .links a.btn{padding:7px 11px;min-height:36px}.section-nav{column-gap:14px;font-size:14px}.news-list li{display:block}.news-list time{display:block;margin-bottom:4px}.news-list li+li{margin-top:18px}}
+@media screen and (max-width:480px){body{padding:0 22px;font-size:14.5px;line-height:1.65}.wrapper{padding-top:28px}.wrapper>header{padding-bottom:28px}.wrapper>section{padding-top:28px}section>h2{font-size:24px;margin-bottom:20px}section>h2:not(:first-child){margin-top:48px}.publications .links{gap:8px}.publications ol.bibliography li .links a.btn{padding:7px 11px;min-height:36px}.section-nav{column-gap:14px;font-size:14px}.news-list li{display:block}.news-list time{display:block;margin-bottom:4px}.news-list li+li{margin-top:18px}}
 @media(prefers-color-scheme:dark) and (max-width:960px){.wrapper>section{border-color:#3b4653}}
 @media print{.wrapper{display:block;width:auto;max-width:none;padding:0}.wrapper>header{position:static;max-height:none;overflow:visible;padding-bottom:24px}.section-nav{display:none}body{font-size:11pt}.wrapper>section>.page-footnote{font-size:9pt}h2{break-after:avoid}.publications li{break-inside:avoid}}
 
@@ -82,20 +82,20 @@ section>h2:not(:first-child){margin-top:64px}
 
 .research-interests{margin:0}
 .research-interests strong{color:inherit;font-weight:700}
-.research-perspectives{margin:18px 0 0;padding-left:1.25em;list-style:disc}
+.research-perspectives{margin:16px 0 0;padding-left:1.25em;list-style:disc}
 .research-perspectives>li{padding-left:3px}
-.research-perspectives>li+li{margin-top:12px}
+.research-perspectives>li+li{margin-top:10px}
 .research-interests p{margin:0}
 .ongoing-projects{margin-top:28px;padding-top:20px;border-top:1px solid #e6ebef}
 .ongoing-projects h3{font-size:16px;font-weight:600;line-height:1.5;margin:0 0 10px;color:#64717e}
-.ongoing-projects p{font-size:15px;line-height:1.7;margin:0}
+.ongoing-projects p{font-size:14.5px;line-height:1.65;margin:0}
 @media(prefers-color-scheme:dark){.ongoing-projects{border-color:#3b4653}.ongoing-projects h3{color:#afbbc9}}
 
 .projects-list{list-style:none;margin:0;padding:0}
 .projects-list>li+li{margin-top:32px}
 .project-heading{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:4px 16px;margin-bottom:8px}
 .project-heading h3{font-size:18px;font-weight:600;line-height:1.4;margin:0;color:#043361}
-.project-summary{font-size:15px;line-height:1.65;margin:0 0 9px}
+.project-summary{font-size:14.5px;line-height:1.6;margin:0 0 9px}
 .project-links{display:flex;gap:16px;font-size:13px;margin:0}
 .project-links a{text-decoration:underline;text-underline-offset:3px}
 @media screen and (max-width:600px){.project-heading{flex-direction:column;align-items:flex-start}}
